@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Fisch Store™</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .itemboat {
+            background-image: url('https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/optimized/4X/8/3/4/834cde10af395717eadec7d8b7af55229ccf10a9_2_1035x582.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10px;
+            border-radius: 5%;
+            margin: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+
+        .itembait {
+            background-image: url('https://images.unsplash.com/photo-1541742425281-c1d3fc8aff96?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmlzaGluZ3xlbnwwfHwwfHx8MA%3D%3D');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10px;
+            border-radius: 5%;
+            margin: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+
+        .itemrod {
+            background-image: url('https://thumbs.dreamstime.com/b/fishing-rods-903163.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10px;
+            border-radius: 5%;
+            margin: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+
+        .itemtotem {
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20240812/pngtree-totem-wood-pole-in-sunset-background-image_16130285.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 10px;
+            border-radius: 5%;
+            margin: 4px;
+            font-weight: bold;
+            color: white;
+        }
+
+
+        #bodyy {
+            background-image: url('https://www.worldhistory.org/uploads/images/14282.png?v=1698784567-0');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+
+            /*https://www.worldhistory.org/uploads/images/14282.png?v=1698784567-0*/
+            /*linear-gradient(360deg, rgb(0, 88, 60), rgb(0, 53, 228), rgb(135, 249, 255), azure);*/
+        }
+
+
+        #cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 10px 20px;
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+
+        #cart-details {
+            margin: 20px;
+            padding: 20px;
+            font-weight: bold;
+            color: white;
+            background-image: url('https://images.unsplash.com/photo-1531824475211-72594993ce2a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29vZCUyMHBsYW5rfGVufDB8fDB8fHww');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+
+        #cart-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+
+        #cart-list li {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body id="bodyy">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 30px; font-weight: bold; margin-top: 10px; background-color: rgb(200, 93, 0); color: black;">
+                    Categories
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" onclick="showAll()">Show All</button></li>
+                    <li><button class="dropdown-item" onclick="boats()">Boats</button></li>
+                    <li><button class="dropdown-item" onclick="baits()">Baits</button></li>
+                    <li><button class="dropdown-item" onclick="rods()">Rods</button></li>
+                    <li><button class="dropdown-item" onclick="totems()">Totems</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a href="about-us.html" class="btn btn-secondary" style="font-weight: bold; margin-top: 10px; background-color: rgb(200, 93, 0); color: black;">About Us</a>
+        </div>
+        <div class="col-md-4" style="text-align: center; font-weight: bold; color: rgb(0, 20, 64); ">
+            <h1>SKIBI.AI FISHING EXPERIENCE</h1>
+        </div>
+        <div class="col-md-2">
+            <button id="cart-btn" class="btn btn-secondary" style="font-weight: bold; margin-top: 10px; background-color: rgb(200, 93, 0); color: black;">CART</button>
+        </div>
+    </div>
+
+
+    <br><br>
+    <hr>
+    <img style="display: block; margin-left: auto; margin-right: auto; border-radius: 5px; border: 5px solid black" src="https://i.ytimg.com/vi/JVDAoUkOxac/maxresdefault.jpg" width="750" height="250" alt="Fishing Experience Banner">
+    <br><hr><br>
+
+
+    <h1 style="text-align: center;">⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘ITEMS⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘</h1>
+    <br><br><hr>
+
+
+    <div id="item-container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 category boats itemboat">
+                <img class="img-fluid" alt="Bass Boat" src="https://static.wikia.nocookie.net/fisch/images/9/9b/Bass_Boat.png/revision/latest?cb=20241119225807">
+                <p>Bass Boat</p>
+                <p>Great for fishing with pals!</p>
+                <p>Cost: 5000C$</p>
+            </div>
+            <div class="col-md-2 category boats itemboat">
+                <img class="img-fluid" alt="Hovercraft" src="https://static.wikia.nocookie.net/fisch/images/e/e7/Hovercraft.png/revision/latest/scale-to-width-down/450?cb=20241119230020">
+                <p>Hovercraft</p>
+                <p>Hover around the seas!</p>
+                <p>Cost: 7000C$</p>
+            </div>
+            <div class="col-md-2 category boats itemboat">
+                <img class="img-fluid" alt="Speedboat" src="https://static.wikia.nocookie.net/fisch/images/2/2b/Speedboat.png/revision/latest/scale-to-width-down/450?cb=20241119225818">
+                <p>Speedboat</p>
+                <p>Sail around at remarkable speeds!</p>
+                <p>Cost: 15000C$</p>
+            </div>
+            <div class="col-md-2 category boats itemboat">
+                <img class="img-fluid" alt="Fishing Boat" src="https://static.wikia.nocookie.net/fisch/images/8/81/Fishing_Boat.png/revision/latest/scale-to-width-down/450?cb=20241119230022">
+                <p>Fishing Boat</p>
+                <p>A trusty boat to reel in even the biggest fish!</p>
+                <p>Cost: 20000C$</p>
+            </div>
+            <div class="col-md-2 category boats itemboat">
+                <img class="img-fluid" alt="Jetski" src="https://static.wikia.nocookie.net/fisch/images/4/4f/Jetski.png/revision/latest/scale-to-width-down/450?cb=20241119230308">
+                <p>Jetski</p>
+                <p>Ski around with a friend at insane speeds!</p>
+                <p>Cost: 50000C$</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 category baits itembait" >
+                <img class="img-fluid" alt="Weird Algae" src="https://static.wikia.nocookie.net/fisch/images/f/fd/Weird_Algae_Render.png/revision/latest?cb=20250224012517">
+                <p>Weird Algae</p>
+                <p>The weirdest algae</p>
+                <p>Cost: 500C$</p>
+            </div>
+            <div class="col-md-2 category baits itembait" >
+                <img class="img-fluid" alt="Night Shrimp" src="https://static.wikia.nocookie.net/fisch/images/3/32/Night_Shrimp_Bait_Render.png/revision/latest?cb=20250224011758">
+                <p>Night Shrimp</p>
+                <p>This shrimp only gets caught in the deepest darkest waters</p>
+                <p>Cost: 650C$</p>
+            </div>
+            <div class="col-md-2 category baits itembait" >
+                <img class="img-fluid" alt="Super Flakes" src="https://static.wikia.nocookie.net/fisch/images/9/9f/Super_Flakes_Render.png/revision/latest?cb=20250224012305">
+                <p>Super Flakes</p>
+                <p>Super!</p>
+                <p>Cost: 300C$</p>
+            </div>
+            <div class="col-md-2 category baits itembait" >
+                <img class="img-fluid" alt="Maggots" src="https://static.wikia.nocookie.net/fisch/images/2/25/Maggot_Render.png/revision/latest?cb=20250224010916">
+                <p>Maggots</p>
+                <p>Your everyday bait</p>
+                <p>Cost: 200C$</p>
+            </div>
+            <div class="col-md-2 category baits itembait" >
+                <img class="img-fluid" alt="Shrimp" src="https://static.wikia.nocookie.net/fisch/images/7/78/Shrimp_Bait_Render.png/revision/latest?cb=20250224012106">
+                <p>Shrimp</p>
+                <p>Shrimp!</p>
+                <p>Cost: 200C$</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 category rods itemrod">
+                <img class="img-fluid" alt="Steady Rod" src="https://static.wikia.nocookie.net/fisch/images/9/97/SteadyRodOnAPlayer.png/revision/latest/scale-to-width-down/240?cb=20241119023837">
+                <p>Steady Rod</p>
+                <p>If you're struggling to get big fish get this rod</p>
+                <p>Cost: 7000C$</p>
+            </div>
+            <div class="col-md-2 category rods itemrod">
+                <img class="img-fluid" alt="Phoenix Rod" src="https://static.wikia.nocookie.net/fisch/images/f/fa/PhoenixRodOnAPlayer.png/revision/latest/scale-to-width-down/240?cb=20241201090547">
+                <p>Phoenix Rod</p>
+                <p>Cool looking rod</p>
+                <p>Cost: 40000C$</p>
+            </div>
+            <div class="col-md-2 category rods itemrod">
+                <img class="img-fluid" alt="Rod of the Depths" src="https://static.wikia.nocookie.net/fisch/images/5/5d/Rod_of_the_Depths_on_a_player.png/revision/latest?cb=20241119021953">
+                <p>Rod of the Depths (ROTD)</p>
+                <p>A ghost spawns to help you with your fishing</p>
+                <p>Cost: 750000C$</p>
+            </div>
+            <div class="col-md-2 category rods itemrod">
+                <img class="img-fluid" alt="Magnet Rod" src="https://static.wikia.nocookie.net/fisch/images/4/45/MagnetRodOnAPlayer.png/revision/latest/scale-to-width-down/240?cb=20241119022348">
+                <p>Magnet Rod</p>
+                <p>Magnet fishing?</p>
+                <p>Cost: 15000C$</p>
+            </div>
+            <div class="col-md-2 category rods itemrod">
+                <img class="img-fluid" alt="Destiny Rod" src="https://static.wikia.nocookie.net/fisch/images/2/2f/New_Destiny_Rod.png/revision/latest?cb=20241119021629">
+                <p>Destiny Rod</p>
+                <p>Cooler looking rod</p>
+                <p>Cost: 190000C$</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 category totems itemtotem" >
+                <img class="img-fluid" alt="Sundial Totem" src="https://static.wikia.nocookie.net/fisch/images/3/3b/Sundial_Totem_Up-close.png/revision/latest?cb=20250430132345">
+                <p>Sundial Totem</p>
+                <p>Can be used to alter day and night</p>
+                <p>Cost: 2000C$</p>
+            </div>
+            <div class="col-md-2 category totems itemtotem" >
+                <img class="img-fluid" alt="Aurora Totem" src="https://static.wikia.nocookie.net/fisch/images/4/4d/Aurora_Totem_close_up.png/revision/latest?cb=20241030153059">
+                <p>Aurora Totem</p>
+                <p>Can be used to summon an Aurora Borealis</p>
+                <p>Cost: 500000C$</p>
+            </div>
+            <div class="col-md-2 category totems itemtotem" >
+                <img class="img-fluid" alt="Zeus Storm Totem" src="https://static.wikia.nocookie.net/fisch/images/0/0d/Zeus_Storm_Totem_Ground.webp/revision/latest?cb=20250127155129">
+                <p>Zeus Storm Totem</p>
+                <p>Can be used to activate the Zeus Storm Event</p>
+                <p>Cost: 1500000C$</p>
+            </div>
+            <div class="col-md-2 category totems itemtotem" >
+                <img class="img-fluid" alt="Blue Moon Totem" src="https://static.wikia.nocookie.net/fisch/images/b/b4/Blue_Moon_Totem.png/revision/latest?cb=20250412134714">
+                <p>Blue Moon Totem</p>
+                <p>It only happens once in a blue moon</p>
+                <p>Cost: 500000C$</p>
+            </div>
+            <div class="col-md-2 category totems itemtotem" >
+                <img class="img-fluid" alt="Meteor Totem" src="https://static.wikia.nocookie.net/fisch/images/d/da/Meteor_Totem.png/revision/latest/scale-to-width-down/1000?cb=20241130150202">
+                <p>Meteor Totem</p>
+                <p>Can summon a meteor</p>
+                <p>Cost: 75000C$</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+
+    <div id="cart-details">
+        <h2>Cart</h2>
+        <ul id="cart-list"></ul>
+        <p id="cart-total-display">Total: 0C$</p>
+        <form id="checkout-form" action="http://47.129.9.35/cs3/checkout.php" method="post">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="cust_name" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="cust_addr" placeholder="Address" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" name="cust_email" placeholder="Email" required>
+            </div>
+            <input type="hidden" name="cust_order" id="cust_order">
+            <button type="submit" class="btn btn-warning">Checkout</button>
+        </form>
+    </div>
+
+
+    <script>
+        function showCategory(categoryName) {
+            const allItems = document.querySelectorAll('.category');
+            allItems.forEach(item => item.style.display = 'none');
+            const selectedItems = document.querySelectorAll('.' + categoryName);
+            selectedItems.forEach(item => item.style.display = 'block');
+        }
+
+
+        function boats() { showCategory('boats'); }
+        function baits() { showCategory('baits'); }
+        function rods() { showCategory('rods'); }
+        function totems() { showCategory('totems'); }
+
+
+        function showAll() {
+            const allItems = document.querySelectorAll('.category');
+            allItems.forEach(item => item.style.display = 'block');
+        }
+
+
+
+        const cart = [];
+        let totalCost = 0;
+
+
+        function addToCart(itemName, cost) {
+            cart.push({ prod_name: itemName, prod_price: cost });
+            totalCost += cost;
+            updateCartDisplay();
+            updateCartList();
+        }
+
+
+        function removeFromCart(index) {
+            const item = cart[index];
+            totalCost -= item.prod_price;
+            cart.splice(index, 1);
+            updateCartDisplay();
+            updateCartList();
+        }
+
+
+        function updateCartDisplay() {
+            document.getElementById('cart-total-display').innerText = `Total: ${totalCost}C$`;
+        }
+
+
+        function updateCartList() {
+            const cartList = document.getElementById('cart-list');
+            cartList.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerText = `${item.prod_name} - ${item.prod_price}C$`;
+                const removeBtn = document.createElement('button');
+                removeBtn.innerText = 'Remove';
+                removeBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
+                removeBtn.onclick = () => removeFromCart(index);
+                li.appendChild(removeBtn);
+                cartList.appendChild(li);
+            });
+            document.getElementById('cart-total-display').innerText = `Total: ${totalCost}C$`;
+        }
+
+
+        document.querySelectorAll('.category').forEach(item => {
+            const name = item.querySelector('p').innerText;
+            const costText = Array.from(item.querySelectorAll('p')).find(p => p.innerText.startsWith('Cost:'));
+            const cost = parseInt(costText.innerText.replace(/\D/g, ''));
+            const btn = document.createElement('button');
+            btn.innerText = "Add to Cart";
+            btn.classList.add('btn', 'btn-sm', 'btn-primary', 'mt-2', 'btn-success');
+            btn.onclick = () => addToCart(name, cost);
+            item.appendChild(btn);
+        });
+
+
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            document.getElementById('cart-details').scrollIntoView({ behavior: 'smooth' });
+        });
+
+
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            document.getElementById('cust_order').value = JSON.stringify(cart);
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showAll();
+        });
+    </script>
+</body>
+</html>
+
